@@ -12,5 +12,6 @@ public class NewProjectTest extends BaseTest {
         loginPage.login(user, password);
         projectsPage.clickNew();
         newProjectPage.inputProjectInfo("test", "test", "test");
+        newProjectPage.delete();
     }
 }
