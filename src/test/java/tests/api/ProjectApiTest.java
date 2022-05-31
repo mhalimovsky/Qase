@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class ProjectApiTest extends BaseApiTest {
 
 
-    @Test(description = "Creation of New project and suite by API")
+    @Test(description = "Creation of new project and suite by API")
     public void createNewProjectTest() {
         Project project = Project.
                 builder().

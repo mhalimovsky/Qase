@@ -14,7 +14,7 @@ public class ProjectApiClient extends BaseApiClient {
 
     }
 
-    @Step("Removing of new project by code")
+    @Step("Removing of project by code")
     public void deleteProjectByCode(String code) {
         log.info("Removing of new project by code");
         gson.fromJson(delete("project/" + code).asString(), Project.class);

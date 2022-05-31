@@ -11,13 +11,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                // Get some code from a GitHub repository
-                git 'https://github.com/mhalimovsky/Qase.git'
-                git branch: 'feature/TMS-19/Qase', url: 'https://github.com/mhalimovsky/Qase.git'
-
                 // Run Maven on a Unix agent.
                 sh "mvn clean test"
-
             }
 
             post {
@@ -28,6 +23,7 @@ pipeline {
                 }
             }
         }
+
         stage('allure') {
  steps {
      script {
@@ -38,9 +34,8 @@ pipeline {
                      reportBuildPolicy: 'ALWAYS',
                      results: [[path: 'target/allure-results']]
              ])
-     }
- }
-}
-
+         }
+        }
+       }
     }
 }

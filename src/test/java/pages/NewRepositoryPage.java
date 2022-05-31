@@ -11,15 +11,15 @@ import static com.codeborne.selenide.Selenide.$;
 @Data
 public class NewRepositoryPage extends BasePage {
 
-    protected SelenideElement SUITE_BUTTON = $("#create-suite-button");
+    protected final SelenideElement SUITE_BUTTON = $("#create-suite-button");
     protected final SelenideElement SUITE_NAME = $("#name");
     protected final SelenideElement SUITE_DESCRIPTION = $("#description");
     protected final SelenideElement SUITE_PRECONDITION = $("#preconditions");
-    protected SelenideElement CREATE_SUITE_BUTTON = $("#save-suite-button");
+    protected final SelenideElement CREATE_SUITE_BUTTON = $("#save-suite-button");
 
     @Step("Creation of new repository")
     public void create(String name, String Description, String Preconditions) {
-        log.info("Creation of new repository");
+        log.info("Creation of new repository in 'test' project with name, description and preconditions");
         SUITE_BUTTON.click();
         SUITE_NAME.sendKeys(name);
         SUITE_DESCRIPTION.sendKeys(Description);

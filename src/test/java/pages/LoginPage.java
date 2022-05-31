@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
 
     @Step("Login with {user}, {password}")
     public void login(String email, String password) {
-        log.info("Login with {user}, {password}");
+        log.info("Login with {user}, {password} from config.properties file");
         EMAIL_INPUT.sendKeys(email);
         PASSWORD_INPUT.sendKeys(password);
         LOGIN_BUTTON.click();

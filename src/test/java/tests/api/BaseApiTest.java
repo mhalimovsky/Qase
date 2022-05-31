@@ -12,7 +12,7 @@ public class BaseApiTest {
     protected SuiteApiClient suiteApiClient;
     protected Project project;
 
-    @BeforeMethod(description = "Opening browser")
+    @BeforeMethod(description = "Start API tests")
     public void setUp() {
         Configuration.baseUrl = "https://app.qase.io/";
         Configuration.browser = "chrome";
