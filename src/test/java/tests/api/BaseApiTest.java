@@ -14,12 +14,6 @@ public class BaseApiTest {
 
     @BeforeMethod(description = "Start API tests")
     public void setUp() {
-        Configuration.baseUrl = "https://app.qase.io/";
-        Configuration.browser = "chrome";
-        Configuration.headless = false;
-        Configuration.clickViaJs = true;
-        Configuration.timeout = 10000;
-
         projectApiClient = new ProjectApiClient();
         suiteApiClient = new SuiteApiClient();
     }

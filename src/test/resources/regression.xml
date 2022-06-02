@@ -23,4 +23,16 @@
             </class>
         </classes>
     </test>
+    <test name="NewTestCase">
+        <classes>
+            <class name="tests.NewTestCaseTest">
+            </class>
+        </classes>
+    </test>
+    <test name="NewTestRunTest">
+        <classes>
+            <class name="tests.NewTestRunTest">
+            </class>
+        </classes>
+    </test>
 </suite>

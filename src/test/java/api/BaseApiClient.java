@@ -27,19 +27,19 @@ public class BaseApiClient {
     public void post(String body, String uri) {
         requestSpecification.
                 body(body).
-        when().
+                when().
                 post(baseUrl + uri).
-        then().
+                then().
                 log().all().
                 statusCode(200);
     }
 
-    public Response get (String uri) {
+    public Response get(String uri) {
         return
                 requestSpecification.
-                when().
+                        when().
                         get(baseUrl + uri).
-                then().
+                        then().
                         log().all().
                         statusCode(200).
                         extract().response();
@@ -48,9 +48,9 @@ public class BaseApiClient {
     public Response delete(String uri) {
         return
                 requestSpecification.
-                when().
+                        when().
                         delete(baseUrl + uri).
-                then().
+                        then().
                         log().all().
                         statusCode(200).
                         extract().response();

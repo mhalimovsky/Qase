@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 @Log4j2
 @Data
@@ -20,6 +21,7 @@ public class LoginPage extends BasePage {
     @Step("Login with {user}, {password}")
     public void login(String email, String password) {
         log.info("Login with {user}, {password} from config.properties file");
+        open("login");
         EMAIL_INPUT.sendKeys(email);
         PASSWORD_INPUT.sendKeys(password);
         LOGIN_BUTTON.click();

@@ -19,9 +19,9 @@ public class Suite {
     @Expose
     String description;
 
-    @SerializedName("Preconditions")
+    @SerializedName("preconditions")
     @Expose
-    String Preconditions;
+    String preconditions;
 
     @SerializedName("id")
     @Expose

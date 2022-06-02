@@ -1,10 +1,7 @@
 package tests;
 
-import api.ProjectApiClient;
-import api.SuiteApiClient;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import dto.Project;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
@@ -14,12 +11,14 @@ public class BaseTest {
 
     public String user;
     public String password;
-
     protected BasePage basePage;
     protected LoginPage loginPage;
     protected NewProjectPage newProjectPage;
     protected ProjectsPage projectsPage;
-    protected NewRepositoryPage newRepositoryPage;
+    protected RepositoryPage repositoryPage;
+    protected NewSuitePage newSuitePage;
+    protected NewTestCasePage newTestCasePage;
+    protected NewTestRunPage newTestRunPage;
 
     @BeforeMethod(description = "Opening browser")
     public void setUp() {
@@ -34,14 +33,16 @@ public class BaseTest {
 
         basePage = new BasePage();
         loginPage = new LoginPage();
-        newProjectPage = new NewProjectPage();
         projectsPage = new ProjectsPage();
-        newRepositoryPage = new NewRepositoryPage();
-
+        repositoryPage = new RepositoryPage();
+        newProjectPage = new NewProjectPage();
+        newSuitePage = new NewSuitePage();
+        newTestCasePage = new NewTestCasePage();
+        newTestRunPage = new NewTestRunPage();
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing Browser")
     public void close() {
         Selenide.closeWebDriver();
-        }
     }
+}
