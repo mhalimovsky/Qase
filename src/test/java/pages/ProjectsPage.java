@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 
 @Log4j2
 @Data
@@ -41,6 +41,8 @@ public class ProjectsPage {
     }
     @Step("Project existence verification")
     public String checkProjectExistence() {
+        //return $$(byText(name)).size() > 0;
+        //refresh();
         String projectAmount = PROJECT_EXISTENCE.getText();
         return projectAmount;
     }

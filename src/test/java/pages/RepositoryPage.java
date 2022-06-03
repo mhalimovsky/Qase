@@ -30,6 +30,7 @@ public class RepositoryPage extends BasePage {
     }
     @Step("Creation a new test case")
     public void createNewTestCase() {
+        log.info("");
         CREATE_TEST_CASE_BUTTON.click();
 
     }
@@ -45,7 +46,7 @@ public class RepositoryPage extends BasePage {
     }
     @Step("Removing the test case")
     public void deleteTestCase() {
-        log.info("Removing suite with name 'test'");
+        log.info("Removing suite, that was created by faker'");
         SELECT_TEST_CASE_BUTTON.click();
         DELETE_TEST_CASE_BUTTON.click();
         DELETE_ICON_INPUT.shouldBe(Condition.visible);

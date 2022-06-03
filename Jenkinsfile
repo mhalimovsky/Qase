@@ -5,13 +5,14 @@ pipeline {
         maven "3.8.5"
      }
 
-    parameters {
+   parameters {
     gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
    }
 
     stages {
         stage('Test') {
             steps {
+                git branch: "${params.BRANCH}", url: 'https://github.com/mhalimovsky/Qase.git'
                 sh "mvn clean test"
 
             }

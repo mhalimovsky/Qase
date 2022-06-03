@@ -1,5 +1,6 @@
 package tests;
 
+import api.ProjectApiClient;
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
 
@@ -19,7 +20,9 @@ public class NewProjectTest extends BaseTest {
         String projectDescription = projectFaker.name().name();
         newProjectPage.inputProjectInfo(projectName, projectCode, projectDescription);
         assertEquals(projectName, repositoryPage.getProjectName(), "Project creation error");
-        projectsPage.deleteProject();
+        //projectsPage.deleteProject();
+
+        new ProjectApiClient().deleteProjectByCode(projectCode);
         String projectAmount = projectsPage.checkProjectExistence();
         assertEquals(projectAmount, "Looks like you don’t have any projects yet.", "Project deletion error");
     }

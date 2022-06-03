@@ -3,8 +3,12 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selenide.$;
+
+@Log4j2
+
 
 public class NewTestRunPage extends BasePage {
 
@@ -24,6 +28,7 @@ public class NewTestRunPage extends BasePage {
     protected final SelenideElement REPOSITORY_LINK = $("i.far.fa-fw.fa-database");
     @Step("Starting new test run")
     public void startNewTestRun() {
+        log.info("Starting new test run,that was created by faker on NewTestRunPage");
         START_TEST_RUN_BUTTON.click();
         ADD_TEST_CASE_BUTTON.click();
         SELECT_TEST_CASE.click();
@@ -32,6 +37,7 @@ public class NewTestRunPage extends BasePage {
     }
     @Step("Test run status verification")
     public String checkTestRunStatus() {
+        log.info("Getting from NewTestRanPage information about test run successfully started");
         TEST_RUN_LINK.click();
         COMPLETE_TEST_RUN_BUTTON.click();
         SUBMIT_BUTTON.click();
@@ -41,6 +47,7 @@ public class NewTestRunPage extends BasePage {
     }
     @Step("Test run removal")
     public void deleteTestRun() {
+        log.info("Delete test run, that was created by faker on NewTestRunPage");
         EXIT_BUTTON.click();
         TEST_RUN_MENU.click();
         DELETE_TEST_RUN_BUTTON.click();

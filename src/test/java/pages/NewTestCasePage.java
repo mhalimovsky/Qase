@@ -16,6 +16,7 @@ public class NewTestCasePage extends BasePage {
     protected final SelenideElement SAVE_BUTTON = $("p.empty-node");
     @Step("Entering data into the test-case")
     public void inputTestCaseInfo(String title, String description) {
+        log.info("Entering data into the test-case created by faker");
         TEST_CASE_TITLE.sendKeys(title);
         TEST_CASE_DESCRIPTION.sendKeys(description);
         SAVE_BUTTON.click();

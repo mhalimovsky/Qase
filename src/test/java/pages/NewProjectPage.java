@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -23,7 +22,7 @@ public class NewProjectPage extends BasePage {
 
     @Step("Entering data into the project")
     public void inputProjectInfo(String name, String code, String description) {
-        log.info("Entering name: 'test', code:'test', description: 'test' into the project");
+        log.info("Creation of project with data: {}, {}, {}", name, code, description);
         PROJECT_NAME.sendKeys(name);
         PROJECT_CODE.sendKeys(code);
         PROJECT_DESCRIPTION.sendKeys(description);

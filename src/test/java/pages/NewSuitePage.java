@@ -19,7 +19,7 @@ public class NewSuitePage {
 
     @Step("Creation of new suite")
     public void inputNewSuiteInfo(String name, String Description, String Preconditions) {
-        log.info("Creation of new repository in 'test' project with name, description and preconditions");
+        log.info("Creation of new suite with data: {} {} {}", name, Description, Preconditions);
         SUITE_NAME_INPUT.sendKeys(name);
         SUITE_DESCRIPTION_INPUT.sendKeys(Description);
         SUITE_PRECONDITION_INPUT.sendKeys(Preconditions);
