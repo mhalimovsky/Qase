@@ -2,40 +2,40 @@ pipeline {
     agent any
 
     tools {
-        // Install the Maven version configured as "M3" and add it to the path.
         maven "3.8.5"
-    }
+     }
+
     parameters {
     gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-}
+   }
+
     stages {
         stage('Test') {
             steps {
-                // Run Maven on a Unix agent.
+                git branch: "${params.BRANCH}", url: 'https://github.com/mhalimovsky/Qase.git'
                 sh "mvn clean test"
+
             }
 
             post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
                 success {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
         }
 
-        stage('allure') {
- steps {
-     script {
-             allure([
-                     includeProperties: false,
-                     jdk: '',
-                     properties: [],
-                     reportBuildPolicy: 'ALWAYS',
-                     results: [[path: 'target/allure-results']]
-             ])
-         }
+        stage('reports') {
+            steps {
+                script {
+                        allure([
+                               includeProperties: false,
+                               jdk: '',
+                               properties: [],
+                               reportBuildPolicy: 'ALWAYS',
+                               results: [[path: 'target/allure-results']]
+                        ])
+                }
+            }
         }
-       }
     }
 }

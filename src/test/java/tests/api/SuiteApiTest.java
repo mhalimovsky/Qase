@@ -11,7 +11,7 @@ public class SuiteApiTest extends BaseApiTest {
                 builder().
                 name("APITEST").
                 description("SOMEDESCRIPT").
-                Preconditions("Some").
+                preconditions("Some").
                 build();
         suiteApiClient.createNewSuite(suite, project.getCode());
     }

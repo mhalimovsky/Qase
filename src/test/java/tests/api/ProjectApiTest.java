@@ -23,7 +23,7 @@ public class ProjectApiTest extends BaseApiTest {
                 builder().
                 name("APITEST").
                 description("SOMEDESCRIPTION").
-                Preconditions("Some").
+                preconditions("Some").
                 build();
         suiteApiClient.createNewSuite(suite, project.getCode());
         projectApiClient.deleteProjectByCode(project.getCode());
