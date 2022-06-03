@@ -12,7 +12,6 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                git branch: "${params.BRANCH}", url: 'https://github.com/mhalimovsky/Qase.git'
                 sh "mvn clean test"
 
             }
