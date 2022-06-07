@@ -18,7 +18,7 @@ public class NewSuitePage {
     protected final SelenideElement CREATE_SUITE_BUTTON = $("#save-suite-button");
 
 
-    @Step("Creation of new suite")
+    @Step("Creation of new suite with name, description, preconditions")
     public void inputNewSuiteInfo(String name, String description, String preconditions) {
         log.info("Creation of new suite with data: {} {} {}", name, description, preconditions);
         SUITE_NAME_INPUT.sendKeys(name);

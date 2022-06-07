@@ -15,7 +15,7 @@ public class NewTestCasePage extends BasePage {
     protected final SelenideElement TEST_CASE_DESCRIPTION = $("#save-case");
     protected final SelenideElement SAVE_BUTTON = $("[type=submit]");
 
-    @Step("Entering data into the test-case")
+    @Step("Entering title and description into the test-case")
     public void inputTestCaseInfo(String title, String description) {
         log.info("Entering data into the test-case {}, {}", title, description);
         TEST_CASE_TITLE.sendKeys(title);

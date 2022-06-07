@@ -41,7 +41,7 @@ public class ProjectsPage {
         SUBMIT_BUTTON.click();
     }
 
-    @Step("Project existence verification")
+    @Step("Project existence verification by name")
     public boolean checkProjectExistence(String name) {
         log.info("Does project" + name + "exists");
         open("projects");

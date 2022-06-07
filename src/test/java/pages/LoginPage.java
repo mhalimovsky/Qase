@@ -16,7 +16,7 @@ public class LoginPage extends BasePage {
     protected final SelenideElement PASSWORD_INPUT = $("#inputPassword");
     protected final SelenideElement LOGIN_BUTTON = $("#btnLogin");
 
-    @Step("Login with data from config.properties file")
+    @Step("Login with email and password")
     public void login(String email, String password) {
         log.info("Login with {}, {}", email, password);
         open("login");

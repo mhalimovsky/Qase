@@ -21,7 +21,7 @@ public class NewProjectPage extends BasePage {
     protected final SelenideElement CREATE_BUTTON = $("[type=submit]");
 
 
-    @Step("Entering data into the project")
+    @Step("Entering name,code,description into the project")
     public void inputProjectInfo(String name, String code, String description) {
         log.info("Creation of project with data: {}, {}, {}", name, code, description);
         PROJECT_NAME.sendKeys(name);
