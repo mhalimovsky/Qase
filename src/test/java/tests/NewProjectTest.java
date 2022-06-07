@@ -15,15 +15,13 @@ public class NewProjectTest extends BaseTest {
         loginPage.login(user, password);
         projectsPage.createNewProject();
         Faker projectFaker = new Faker();
-        String projectName = projectFaker.name().name();
-        String projectCode = projectFaker.code().asin();
+        String projectName = projectFaker.code().ean8();
+        String projectCode = projectFaker.code().ean8();
         String projectDescription = projectFaker.name().name();
         newProjectPage.inputProjectInfo(projectName, projectCode, projectDescription);
         assertEquals(projectName, repositoryPage.getProjectName(), "Project creation error");
-        //projectsPage.deleteProject();
-
-        new ProjectApiClient().deleteProjectByCode(projectCode);
-        String projectAmount = projectsPage.checkProjectExistence();
-        assertEquals(projectAmount, "Looks like you don’t have any projects yet.", "Project deletion error");
+        projectApiClient.deleteProjectByCode(projectCode);
+        boolean projectAmount = projectsPage.checkProjectExistence(projectName);
+        assertEquals(projectAmount, false, "Project deletion error");
     }
 }

@@ -14,11 +14,11 @@ public class NewTestCaseTest extends BaseTest {
         loginPage.login(user, password);
         projectsPage.createNewProject();
         Faker ProjectFaker = new Faker();
-        String ProjectName = ProjectFaker.name().name();
-        String ProjectCode = ProjectFaker.code().asin();
-        String ProjectDescription = ProjectFaker.name().name();
-        newProjectPage.inputProjectInfo(ProjectName, ProjectCode, ProjectDescription);
-        assertEquals(ProjectName, repositoryPage.getProjectName(), "Project creation error");
+        String projectName = ProjectFaker.name().name();
+        String projectCode = ProjectFaker.code().asin();
+        String projectDescription = ProjectFaker.name().name();
+        newProjectPage.inputProjectInfo(projectName, projectCode, projectDescription);
+        assertEquals(projectName, repositoryPage.getProjectName(), "Project creation error");
         repositoryPage.createNewSuite();
         Faker suiteFaker = new Faker();
         String suiteName = suiteFaker.name().name();
@@ -35,7 +35,7 @@ public class NewTestCaseTest extends BaseTest {
         repositoryPage.deleteTestCase();
         repositoryPage.deleteSuite();
         projectsPage.deleteProject();
-        String projectAmount = projectsPage.checkProjectExistence();
-        assertEquals(projectAmount, "Looks like you don’t have any projects yet.", "Project deletion error");
+        boolean projectAmount = projectsPage.checkProjectExistence(projectName);
+        assertEquals(projectAmount, false, "Project deletion error");
     }
 }

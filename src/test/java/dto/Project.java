@@ -1,5 +1,6 @@
 package dto;
 
+import com.github.javafaker.Faker;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;

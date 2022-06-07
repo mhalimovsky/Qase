@@ -20,31 +20,33 @@ public class ProjectsPage {
     protected final SelenideElement PROJECT_SETTING_BUTTON = $("a.btn.btn-dropdown");
     protected final SelenideElement DELETE_BUTTON = $("a.text-danger");
     protected final SelenideElement SUBMIT_BUTTON = $("button.btn.btn-cancel");
-    protected final SelenideElement PROJECT_EXISTENCE = $("span.no-project.mt-4");
+    protected final SelenideElement SEARCH_PROJECT = $("input.form-control.search-input");
 
 
     @Step("Creation of new project")
     public void createNewProject() {
         log.info("Click on 'new-project' button");
         CREATE_BUTTON.click();
+        sleep(500);
         CREATE_PROJECT_BUTTON.shouldBe(Condition.visible);
     }
 
     @Step("Removing the project")
     public void deleteProject() {
-        log.info("Removal a project with name 'test'");
+        log.info("Removing the project");
         open("projects");
         PROJECTS_SORTING_BUTTON.click();
         PROJECT_SETTING_BUTTON.click();
         DELETE_BUTTON.click();
         SUBMIT_BUTTON.click();
     }
+
     @Step("Project existence verification")
-    public String checkProjectExistence() {
-        //return $$(byText(name)).size() > 0;
-        //refresh();
-        String projectAmount = PROJECT_EXISTENCE.getText();
-        return projectAmount;
+    public boolean checkProjectExistence(String name) {
+        log.info("Does project" + name + "exists");
+        open("projects");
+        SEARCH_PROJECT.sendKeys(name);
+        return $$(byText(name)).size() > 0;
     }
 }
 

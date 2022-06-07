@@ -28,7 +28,7 @@ public class NewSuiteTest extends BaseTest {
         assertEquals(suiteName, repositoryPage.getSuiteName(), "Suite creation error");
         repositoryPage.deleteSuite();
         projectsPage.deleteProject();
-        String projectAmount = projectsPage.checkProjectExistence();
-        assertEquals(projectAmount, "Looks like you don’t have any projects yet.", "Project deletion error");
+        boolean projectAmount = projectsPage.checkProjectExistence(projectName);
+        assertEquals(projectAmount, false, "Project deletion error");
     }
 }
