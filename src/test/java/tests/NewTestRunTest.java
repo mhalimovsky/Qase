@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 
 public class NewTestRunTest extends BaseTest {
 
@@ -38,6 +39,6 @@ public class NewTestRunTest extends BaseTest {
         repositoryPage.deleteSuite();
         projectApiClient.deleteProjectByCode(projectCode);
         boolean projectAmount = projectsPage.checkProjectExistence(projectName);
-        assertEquals(projectAmount, false, "Project deletion error");
+        assertFalse(projectAmount, "Project deletion error");
     }
 }
