@@ -16,7 +16,7 @@ public class RepositoryPage extends BasePage {
     protected final SelenideElement CREATE_TEST_CASE_BUTTON = $("#create-case-button");
     protected final SelenideElement DELETE_SUITE_BUTTON = $("i.fa-trash");
     protected final SelenideElement SELECT_TEST_CASE_BUTTON = $("[type=checkbox]");
-    protected final SelenideElement CONFIRM_BUTTON = $("button.LzLtDS.R1y8iB.MBIQEc");
+    protected final SelenideElement CONFIRM_BUTTON = $("button.LzLtDS.DRnS3P.MBIQEc");
     protected final SelenideElement DELETE_ICON_INPUT = $("[name=confirm]");
     protected final SelenideElement DELETE_TEST_CASE_BUTTON = $("i.fa.fa-trash");
     protected final SelenideElement PROJECT_NAME = $("div.sqabXr");
@@ -53,6 +53,9 @@ public class RepositoryPage extends BasePage {
     public void deleteTestCase() {
         log.info("Removing suite, that was created by faker'");
         REPOSITORY_LINK.click();
+        sleep(700);
+        REPOSITORY_LINK.click();
+        sleep(700);
         SELECT_TEST_CASE_BUTTON.click();
         DELETE_TEST_CASE_BUTTON.click();
         DELETE_ICON_INPUT.shouldBe(Condition.visible);

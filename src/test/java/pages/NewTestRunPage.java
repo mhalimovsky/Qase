@@ -67,7 +67,7 @@ public class NewTestRunPage extends BasePage {
         CONFIRM_DELETE_BUTTON.click();
         sleep(300);
         REPOSITORY_LINK.click();
-        sleep(500);
+        sleep(700);
 
     }
 }
